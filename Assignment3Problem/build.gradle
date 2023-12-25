@@ -1,0 +1,49 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.1'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+configurations {
+	compileOnly{
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'//
+	implementation 'org.hibernate:hibernate-core:6.2.17.Final'
+	compileOnly 'org.projectlombok:lombok:1.18.28'//
+	implementation 'com.h2database:h2:1.4.200'
+	runtimeOnly 'com.mysql:mysql-connector-j:8.2.0'//
+	annotationProcessor 'org.projectlombok:lombok:1.18.28'//
+	implementation 'org.hibernate:hibernate-entitymanager:5.6.15.Final'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.1'//
+	implementation 'org.springframework.boot:spring-boot-starter-validation:3.1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.1.2'//
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'//
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'//
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'//
+
+
+	implementation 'org.springframework.security:spring-security-core:6.1.2'
+	implementation 'org.springframework.security:spring-security-config:6.1.2'
+	implementation 'org.springframework.security:spring-security-web:6.1.2'
+    testImplementation 'org.springframework.security:spring-security-test:6.1.2'//
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'//
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
